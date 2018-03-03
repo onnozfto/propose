@@ -29,7 +29,7 @@
 			        <div id="code">
 			        	<span class="say"> Our Story</span><br>
 						<span class="say"> </span><br>
-			        	<span class="say"> For  胡猫熊 &  overmind1980 </a></span><br>
+			        	<span class="say" id="for_span">  </span><br>
 						<span class="say"> </span><br>
                         <span class="say"> 还记得我们相识的时候吗, 或许是缘分，或许是注定的。</span><br>
 						<span class="say"> </span><br>
@@ -45,7 +45,7 @@
                         <span class="say"> </span><br>
                         <span class="say"> ..永远的..</span><br>
 						<span class="say"> </span><br>
-                        <span class="say"><span class="space"></span>overmind1980 与 胡猫熊</span>
+                        <span class="say" id="and_span"><span class="space"></span></span>
 			        </div>
                 </div>
                 <div id="clock-box">
@@ -58,9 +58,14 @@
         </div>
     
     <script>
+		var name1 = "For one & one";
+		var name2 = "one  与  one";
+		document.getElementById("for_span").innerHTML=name1;
+		document.getElementById("and_span").innerHTML="<span class='space'></span>"+ name2;
     </script>
 
     <script>
+
     (function(){
         var canvas = $('#canvas');
 		
