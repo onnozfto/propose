@@ -23,7 +23,7 @@
 </head>
 <body>
 <audio controls="controls" autoplay="autopaly"  loop="loop" preload="auto" >
- <source  src= "./story/iloveu.mp3" type="audio/mp3" />
+ <source id="bgmusic"  preload="auto" src= "./story/iloveu.mp3" type="audio/mp3" />
 </audio>
 <div id="main">
     <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
@@ -67,7 +67,59 @@
     document.getElementById("for_span").innerHTML = name1;
     document.getElementById("and_span").innerHTML = "<span class='space'></span>" + name2;
 </script>
+<script>
+$(document).ready(function() {
 
+        var voice = document.getElementById("bgmusic");
+
+        voice.play();
+
+        //判断 WeixinJSBridge 是否存在，加载WeixinJSBridge需要一定的时间
+
+        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+
+            voice.play();
+
+        } else {
+
+            //WeixinJSBridge还未加载完时，兼听客户端抛出事件"WeixinJSBridgeReady"，如果抛出WeixinJSBridgeReady，说明WeixinJSBridge加载完毕
+
+           
+
+          if (document.addEventListener) {
+
+               //WeixinJSBridge加载完毕时进行播放
+
+                document.addEventListener("WeixinJSBridgeReady", function()  
+
+               {
+
+                    voice.play();
+
+                }, false);
+
+           // Internet Explorer 8 及更早IE版本不支持 addEventListener() 方法时用document.attachEvent
+
+            } else if (document.attachEvent) {
+
+                document.attachEvent("WeixinJSBridgeReady", function() {
+
+                    voice.play();
+
+                });
+
+                document.attachEvent("onWeixinJSBridgeReady", function() {
+
+                    voice.play();
+
+                });
+
+            }
+
+        }
+
+});
+	</script>
 <script>
 
     (function(){
