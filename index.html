@@ -75,13 +75,14 @@ $(document).ready(function() {
 
         var voice = document.getElementById("bgmusic");
 
-        voice.play();
+       // voice.play();
 
         //判断 WeixinJSBridge 是否存在，加载WeixinJSBridge需要一定的时间
 
         if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-
+		alert("wx");
             voice.play();
+
 
         } else {
 
@@ -96,6 +97,7 @@ $(document).ready(function() {
                 document.addEventListener("WeixinJSBridgeReady", function()  
 
                {
+			alert("2");
 
                     voice.play();
 
